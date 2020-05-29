@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace iBankaBaltija
 {
@@ -6,10 +7,14 @@ namespace iBankaBaltija
     {
         static void Main(string[] args)
         {
-            Account account = new Account("Yuri", 200);
-            Console.WriteLine($"Client {account.Owner} has {account.Balance} rubles in account number {account.Number} created on {account.Created.ToString("dd/MM/yyyy")}");
-            account.Created = new DateTime(2019,10,24);
-            Console.WriteLine($"Client {account.Owner} has {account.Balance} rubles in account number {account.Number} created on {account.Created.ToString("dd/MM/yyyy")}");
+
+            List<Account> accounts = new List<Account>(); 
+            accounts.Add(new Account("Yuri", 200));
+            Console.WriteLine($"Client {accounts[0].Owner} has {accounts[0].Balance} rubles in account number {accounts[0].Number} created on {accounts[0].Created.ToString("dd/MM/yyyy")}");
+            accounts.Add(new Account("I.P", 150));
+            Console.WriteLine($"Client {accounts[1].Owner} has {accounts[1].Balance} rubles in account number {accounts[1].Number} created on {accounts[1].Created.ToString("dd/MM/yyyy")}");
+            Console.WriteLine(accounts[0].Balance);
         }
+
     }
 }
